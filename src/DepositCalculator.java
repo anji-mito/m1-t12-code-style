@@ -2,21 +2,21 @@ import java.util.Scanner;
 
 public class DepositCalculator {
 
-    double calculateComplexPercent(double a, double y, int d) {
-        double pay = a * Math.pow((1 + y / 12), 12 * d);
-        return rnd(pay, 2);
+    double calculateComplexPercent(double amount, double year, int day) {
+        double pay = amount * Math.pow((1 + year / 12), 12 * day);
+        return roundAmount(pay, 2);
     }
 
-    double calculateSimplePercent(double doubleAmount, double double_year_rate, int deposit_period) {
-        return rnd(doubleAmount + doubleAmount * double_year_rate * deposit_period, 2);
+    double calculateSimplePercent(double doubleAmount, double doubleYearRate, int depositPeriod) {
+        return roundAmount(doubleAmount + doubleAmount * doubleYearRate * depositPeriod, 2);
     }
 
-    double rnd(double value, int places) {
-        double ScaLe = Math.pow(10, places);
-        return Math.round(value * ScaLe) / ScaLe;
+    double roundAmount(double amount, int period) {
+        double scale = Math.pow(10, period);
+        return Math.round(amount * scale) / scale;
     }
 
-    void do_important_job() {
+    void calculateDeposit() {
         int period, action;
         Scanner scanner = new Scanner(System.in);
 
@@ -36,6 +36,6 @@ public class DepositCalculator {
     }
 
     public static void main(String[] args) {
-        new DepositCalculator().do_important_job();
+        new DepositCalculator().calculateDeposit();
     }
 }
